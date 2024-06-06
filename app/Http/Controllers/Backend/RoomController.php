@@ -30,6 +30,9 @@ class RoomController extends Controller
 
     public function UpdateRoom(Request $request, $id)
     {
+        $request->validate([
+            'short_desc' => 'max:100'
+        ]);
 
         $room = Room::findOrFail($id);
         // $room->roomType_id = $room->roomType_id;

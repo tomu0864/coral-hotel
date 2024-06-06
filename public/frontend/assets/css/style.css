@@ -3384,6 +3384,8 @@ Room Area
 
 .room-details-item img {
     border-radius: 15px;
+    max-height: 569px;
+    object-fit: cover;
 }
 
 .room-details-title {

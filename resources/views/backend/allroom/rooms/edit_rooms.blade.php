@@ -60,6 +60,7 @@
 										<label for="total_adult" class="form-label">Total Adult</label>
 										<input type="number" name="total_adult" class="form-control" id="total_adult" value="{{ old('total_adult', $room->total_adult) }}">
 									</div>
+
 									<div class="col-md-4">
 										<label for="total_child" class="form-label">Total Child</label>
 										<input type="number" name="total_child" class="form-control" id="total_child" value="{{ old('total_child', $room->total_child) }}">
@@ -126,6 +127,9 @@
 									<div class="col-md-12">
 										<label for="short_desc" class="form-label">Short Description</label>
 										<textarea class="form-control" name="short_desc" id="short_desc" rows="3">{{ old('short_desc', $room->short_desc) }}</textarea>
+                    @error('short_desc')
+                      <p class="text-danger mb-0">{{ $message }}</p>
+                    @enderror
 									</div>
 
 									<div class="col-md-12 mb-2">
