@@ -1,5 +1,5 @@
 @php
-    $testimonials = App\models\Testimonial::latest()->take(3)->get();
+    $testimonials = App\Models\Testimonial::latest()->take(3)->get();
 @endphp
 
 <div class="testimonials-area-three pb-70">

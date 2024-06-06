@@ -1,5 +1,5 @@
 @php
-    $bookarea = App\models\BookArea::firstOrFail();
+    $bookarea = App\Models\BookArea::firstOrFail();
 @endphp
 
 <div class="book-area-two pt-100 pb-70">
