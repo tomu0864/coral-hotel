@@ -6,6 +6,7 @@ use App\Models\SmtpSetting;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use Illuminate\Support\Facades\Schema as FacadesSchema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
     //  Change mail config from Admin Dashboard
     public function boot(): void
     {
+        if (env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
+        }
+
         if (FacadesSchema::hasTable('smtp_settings')) {
             $smtpSetting = SmtpSetting::first();
 
