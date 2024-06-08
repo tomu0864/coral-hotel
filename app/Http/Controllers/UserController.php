@@ -35,8 +35,8 @@ class UserController extends Controller
         $data->address = $request->address;
 
         if ($request->file('photo')) {
-            $image = $request->file('photo')->encode('data-url');
-            $data->photo = $image;
+            $image = $request->file('photo')->get();
+            $data->photo = base64_encode($image);
         }
         $data->save();
 
