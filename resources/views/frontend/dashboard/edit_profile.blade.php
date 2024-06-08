@@ -76,8 +76,8 @@
                               </div>
                               <div class="col-lg-12 col-md-6 mb-4">
          
-                                  <img id="showPhoto" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/' . 
-                                  $profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                                  <img id="showPhoto" src="{{ (!empty($profileData->photo)) ?  
+                                  $profileData->photo : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
                                 
                               </div>
                               <button type="submit" class="btn btn-danger">Save Changes </button>

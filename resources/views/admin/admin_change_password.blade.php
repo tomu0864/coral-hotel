@@ -16,16 +16,6 @@
       </nav>
     </div>
     <div class="ms-auto">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary">Settings</button>
-        <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-          <a class="dropdown-item" href="javascript:;">Another action</a>
-          <a class="dropdown-item" href="javascript:;">Something else here</a>
-          <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-        </div>
-      </div>
     </div>
   </div>
   <!--end breadcrumb-->
@@ -36,8 +26,8 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex flex-column align-items-center text-center">
-                <img src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/' . 
-                $profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                <img src="{{ (!empty($profileData->photo)) ?  
+                $profileData->photo : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                 <div class="mt-3">
                   <h4>{{ $profileData->name }}</h4>
                   <p class="text-secondary mb-1">{{ $profileData->email }}</p>

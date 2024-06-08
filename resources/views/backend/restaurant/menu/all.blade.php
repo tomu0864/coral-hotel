@@ -48,7 +48,7 @@
             <tr class="align-middle">
               <td class="text-center"><input type="checkbox" name="selectedItem[]" value="{{ $item->id }}"></td>
               <td class="text-center">{{ $key+1 }}</td>
-              <td><img src="{{ asset($item->image) }}" alt="{{ $item->name }}" class="img-thumbnail" style="width:70px; height: 60px;"></td>
+              <td><img src="{{ $item->image }}" alt="{{ $item->name }}" class="img-thumbnail" style="width:70px; height: 60px;"></td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->category->name }}</td>
               <td>${{ number_format($item->price, 2) }}</td>

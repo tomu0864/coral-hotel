@@ -129,7 +129,7 @@
                     <div class="room-details-slider owl-carousel owl-theme">
                       @foreach ($multiImgs as $img)
                       <div class="room-details-item">
-                          <img src="{{ asset('upload/rooming/multi_img/' .$img->multi_img) }}" alt="{{ $room->type->name }} Image">
+                          <img src="{{ $img->multi_img }}" alt="{{ $room->type->name }} Image">
                       </div>                        
                       @endforeach
                     </div>

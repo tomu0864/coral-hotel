@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="col-md-12">
-                  <img id="showImage" src="{{ asset($gallery->photo) }}" alt="{{ $gallery->category_name }}" class="rounded-circle p-1 bg-primary" width="100" height="100">
+                  <img id="showImage" src="{{ $gallery->photo }}" alt="{{ $gallery->category_name }}" class="rounded-circle p-1 bg-primary" width="100" height="100">
                 </div>
 
                 <div class="col-md-12">

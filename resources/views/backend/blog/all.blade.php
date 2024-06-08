@@ -43,7 +43,7 @@
               <td>{{ $key+1 }}</td>
               <td>{{ $item->post_title }}</td>
               <td>{{ $item->category->category_name }}</td>
-              <td><img src="{{ asset($item->post_image) }}" alt="Blog Post Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
+              <td><img src="{{ $item->post_image }}" alt="Blog Post Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
               <td>
                 <a href="{{ route('blog.post.edit', $item->id) }}" class="btn btn-warning px-3 radius-30">Edit</a>
                 <form action="{{ route('blog.post.delete', $item->id) }}" id="deleteBlogPost{{ $item->id }}" method="post" class="deleteBlogPost d-inline">

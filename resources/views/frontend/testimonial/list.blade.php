@@ -50,7 +50,7 @@
                             </p>
                             <ul>
                                 <li>
-                                    <img src="{{ asset($latest_testi->image) }}" alt="Images">
+                                    <img src="{{ $latest_testi->image }}" alt="Images">
                                     <h3>{{ $latest_testi->name }}</h3>
                                     <span>{{ $latest_testi->city }}</span>
                                 </li>
@@ -79,7 +79,7 @@
                           </p>
                           <ul>
                               <li>
-                                  <img src="{{ asset($testi->image) }}" alt="{{ $testi->name }}">
+                                  <img src="{{ $testi->image }}" alt="{{ $testi->name }}">
                                   <h3>{{ $testi->name }}</h3>
                                   <span>{{ $testi->city }}</span>
                               </li>

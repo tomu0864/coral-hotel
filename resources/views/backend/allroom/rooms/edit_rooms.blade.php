@@ -68,17 +68,17 @@
 									<div class="col-md-6">
 										<p class="mb-0">Main Image</p>
 
-                    <img id="showImage" src="{{ (!empty($room->image) ? url('upload/rooming/' .$room->image) : 
+                    <img id="showImage" src="{{ (!empty($room->image) ? $room->image : 
                          url('upload/no_image.jpg')) }}" alt="{{ $room->name . "'s Main Image" }}" 
-                         class="bg-primary mt-2 img-thumbnail" style="height:95px">
+                         class="bg-primary mt-2 img-thumbnail" style="height: 60px; width:60px;">
 									</div>
 									<div class="col-md-6">
 										<p class="mb-0">Gallery Image</p>
 
                            @foreach ($multiImgs as $item)
-                              <img src="{{ (!empty($item->multi_img) ? url('upload/rooming/multi_img/' .$item->multi_img) : 
+                              <img src="{{ (!empty($item->multi_img) ? $item->multi_img : 
                                     url('upload/no_image.jpg')) }}" alt="{{ $room->name . "'s Subimage" }}" 
-                                    class="bg-primary mt-2 img-thumbnail" width="60" height="30">
+                                    class="bg-primary mt-2 img-thumbnail" style="height: 60px; width:60px;">
                                     <a href="{{ route('room.multi.image.delete', $item->id) }}"><i class="bx bx-trash"></i></a>
                            @endforeach
 

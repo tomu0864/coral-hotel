@@ -15,16 +15,6 @@
       </nav>
     </div>
     <div class="ms-auto">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary">Settings</button>
-        <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-          <a class="dropdown-item" href="javascript:;">Another action</a>
-          <a class="dropdown-item" href="javascript:;">Something else here</a>
-          <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-        </div>
-      </div>
     </div>
   </div>
   <!--end breadcrumb-->
@@ -98,7 +88,7 @@
                       <h6 class="mb-0"></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <img id="showImage" src="{{ asset($team->image) }}" alt="{{ $team->name . "'s Photo" }}" class="rounded-circle p-1 bg-primary" width="80" height="80">
+                      <img id="showImage" src="{{ $team->image }}" alt="{{ $team->name . "'s Photo" }}" class="rounded-circle p-1 bg-primary" width="80" height="80">
                     </div>
                   </div>
 

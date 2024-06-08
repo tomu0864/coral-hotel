@@ -29,7 +29,7 @@
               
               <article class="item">
                   <a href="{{ url('blog/details/'.$lpost->post_slug) }}" class="thumb">
-                    <img style="width: 80px; height:80px" src={{ asset($lpost->post_image) }} alt="{{ $lpost->post_title }}">
+                    <img style="width: 80px; height:80px" src={{ $lpost->post_image }} alt="{{ $lpost->post_title }}">
                   </a>
                   <div class="info">
                       <h4 class="title-text">

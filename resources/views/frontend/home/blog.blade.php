@@ -14,7 +14,7 @@
           <div class="col-lg-4 col-md-6">
               <div class="blog-item">
                   <a href="{{ url('blog/details/'.$blog->post_slug) }}">
-                      <img src="{{ asset($blog->post_image) }}" alt="{{ $blog->post_title }}">
+                      <img src="{{ $blog->post_image }}" alt="{{ $blog->post_title }}">
                   </a>
                   <div class="content">
                       <ul>

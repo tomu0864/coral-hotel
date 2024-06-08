@@ -46,8 +46,8 @@
                                         
                                       <div class="col-lg-4 col-sm-6">
                                           <div class="single-gallery">
-                                              <img src="{{ asset($item->photo) }}" alt="{{ $item->category_name }}">
-                                              <a href="{{ asset($item->photo) }}" class="gallery-icon">
+                                              <img src="{{ $item->photo }}" alt="{{ $item->category_name }}">
+                                              <a href="{{ $item->photo }}" class="gallery-icon">
                                                   <i class='bx bx-plus'></i>
                                               </a>
                                           </div>
@@ -67,8 +67,8 @@
                                      
                                    <div class="col-lg-4 col-sm-6">
                                        <div class="single-gallery">
-                                           <img src="{{ asset($item->photo) }}" alt="{{ $item->category_name }}">
-                                           <a href="{{ asset($item->photo) }}" class="gallery-icon">
+                                           <img src="{{ $item->photo }}" alt="{{ $item->category_name }}">
+                                           <a href="{{ $item->photo }}" class="gallery-icon">
                                                <i class='bx bx-plus'></i>
                                            </a>
                                        </div>
@@ -88,8 +88,8 @@
                                      
                                    <div class="col-lg-4 col-sm-6">
                                        <div class="single-gallery">
-                                           <img src="{{ asset($item->photo) }}" alt="{{ $item->category_name }}">
-                                           <a href="{{ asset($item->photo) }}" class="gallery-icon">
+                                           <img src="{{ $item->photo }}" alt="{{ $item->category_name }}">
+                                           <a href="{{ $item->photo }}" class="gallery-icon">
                                                <i class='bx bx-plus'></i>
                                            </a>
                                        </div>

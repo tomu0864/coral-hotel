@@ -25,17 +25,14 @@ class TestimonialController extends Controller
 
     public function StoreTestimonial(Request $request)
     {
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(50, 50)->save('upload/testimonial/' . $name_gen);
-        $save_url = 'upload/testimonial/' . $name_gen;
+        $image = Image::make($request->file('image'))->resize(50, 50)->encode('data-url');
 
         Testimonial::insert([
 
             'name' => $request->name,
             'city' => $request->city,
             'message' => $request->message,
-            'image' => $save_url,
+            'image' => $image,
             'created_at' => Carbon::now(),
         ]);
 
@@ -58,19 +55,13 @@ class TestimonialController extends Controller
         $testimonial = Testimonial::findOrFail($id);
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(50, 50)->save('upload/testimonial/' . $name_gen);
-            $save_url = 'upload/testimonial/' . $name_gen;
-
-            $img = $testimonial->image;
-            unlink($img);
+            $image = Image::make($request->file('image'))->resize(50, 50)->encode('data-url');
 
             $testimonial->update([
                 'name' => $request->name,
                 'city' => $request->city,
                 'message' => $request->message,
-                'image' => $save_url,
+                'image' => $image,
                 'created_at' => Carbon::now(),
             ]);
 
@@ -108,10 +99,7 @@ class TestimonialController extends Controller
         }
 
         $testimonial = Testimonial::findOrFail($id);
-        $img = $testimonial->image;
-        unlink($img);
 
-        // Proceed with deleting the team record
         $testimonial->delete();
 
         return response()->json(['success' => true, 'message' => "Testimonial has deleted successfully!"]);

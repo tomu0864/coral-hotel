@@ -45,10 +45,10 @@
                 
             <tr class="align-middle">
               <td>{{ $key+1 }}</td>
-              <td>
-                <img src="{{ (!empty($item->room->image)) ? 
-                url('upload/rooming/' .$item->room->image) : url('upload/no_image.jpg')}}" 
-                alt="{{ $item->name }}" style="width: 50px; height:30px;">
+              <td class="text-center">
+                <img src="{{ $item->room->image ? 
+                     $item->room->image : url('upload/no_image.jpg')}}" 
+                alt="{{ $item->name }}" style="width: 50px; height:50px;">
               </td>
               <td>{{ $item->name }}</td>
               <td>

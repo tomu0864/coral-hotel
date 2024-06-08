@@ -32,13 +32,11 @@ class GalleryController extends Controller
         $images = $request->file('photo');
 
         foreach ($images as $img) {
-            $name_gen = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
-            Image::make($img)->resize(550, 550)->save('upload/gallery/' . $name_gen);
-            $save_url = 'upload/gallery/' . $name_gen;
+            $image = Image::make($img)->resize(550, 550)->encode('data-url');
 
             Gallery::insert([
                 'category_name' => $request->category_name,
-                'photo' => $save_url,
+                'photo' => $image,
             ]);
         }
 
@@ -65,19 +63,11 @@ class GalleryController extends Controller
         $gallery = Gallery::findOrFail($id);
 
         if ($request->file('photo')) {
-            $image = $request->file('photo');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 550)->save('upload/gellery/' . $name_gen);
-            $save_url = 'upload/gellery/' . $name_gen;
-
-            if ($gallery->photo) {
-                $img = $gallery->photo;
-                unlink($img);
-            }
+            $image = Image::make($request->file('photo'))->resize(550, 550)->encode('data-url');
 
             $gallery->update([
                 'category_name' => $request->category_name,
-                'photo' => $save_url,
+                'photo' => $image,
             ]);
 
 
@@ -110,10 +100,6 @@ class GalleryController extends Controller
 
         foreach ($selectedItems as $itemId) {
             $item = Gallery::findOrFail($itemId);
-            $img = $item->photo;
-            if ($img) {
-                unlink($img);
-            }
             $item->delete();
         }
 

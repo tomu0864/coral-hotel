@@ -133,7 +133,7 @@
                           <div style="display: flex">
                                 <img 
                                  style="height:100px; width:120px;object-fit: cover" 
-                                 src="{{ (!empty($room->image)) ? asset('upload/rooming/' .$room->image) : asset('upload/no_image.jpg')}}" 
+                                 src="{{ (!empty($room->image)) ? $room->image : asset('upload/no_image.jpg')}}" 
                                  alt="{{ @$room->type->name }}">
 
                                 <div style="padding-left: 10px;">

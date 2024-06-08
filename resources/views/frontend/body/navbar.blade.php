@@ -19,8 +19,8 @@
       <div class="container">
           <nav class="navbar navbar-expand-md navbar-light ">
               <a class="navbar-brand" href="{{ url('/') }}">
-                  <img src="{{ asset($setting->logo) }}" class="logo-one" alt="Logo">
-                  <img src="{{ asset($setting->logo) }}" class="logo-two" alt="Logo">
+                  <img src="{{ $setting->logo }}" class="logo-one" alt="Logo">
+                  <img src="{{ $setting->logo }}" class="logo-two" alt="Logo">
               </a>
 
               <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">

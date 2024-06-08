@@ -20,7 +20,7 @@
 
           <div class="col-lg-6">
               <div class="book-img-2">
-                  <img src="{{ asset($bookarea->image) }}" alt="Images">
+                  <img src="{{ $bookarea->image }}" alt="Images">
               </div>
           </div>
       </div>

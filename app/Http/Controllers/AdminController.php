@@ -61,13 +61,8 @@ class AdminController extends Controller
         $data->address = $request->address;
 
         if ($request->file('photo')) {
-            $file = $request->file('photo');
-            // Repalace old photo with new one
-            unlink(public_path('upload/admin_images/' . $data->photo));
-            //Generate date ID and concatenate with original upload file name
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/admin_images'), $filename);
-            $data->photo = $filename;
+            $image = $request->file('photo')->encode('data-url');
+            $data->photo = $image;
         }
         $data->save();
 

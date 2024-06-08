@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -27,27 +28,31 @@ class TeamController extends Controller
 
     public function StoreTeam(Request $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'facebook' => 'nullable|url',
+            'twitter' => 'nullable|url',
+            'instagram' => 'nullable|url',
+        ]);
 
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(550, 670)->save('upload/team/' . $name_gen);
-        $save_url = 'upload/team/' . $name_gen;
+        $image = Image::make($request->file('image'))->resize(550, 670)->encode('data-url');
 
-        Team::insert([
-
+        Team::create([
             'name' => $request->name,
             'position' => $request->position,
             'facebook' => $request->facebook,
             'twitter' => $request->twitter,
             'instagram' => $request->instagram,
-            'image' => $save_url,
-            'created_at' => Carbon::now(),
+            'image' => $image,
+            'created_at' => now(),
         ]);
 
-        $notification = array(
+        $notification = [
             'message' => 'Team Member Added Successfully',
             'alert-type' => 'success'
-        );
+        ];
 
         return redirect()->route('team.all')->with($notification);
     }
@@ -65,16 +70,7 @@ class TeamController extends Controller
         $team = Team::findOrFail($team_id);
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 670)->save('upload/team/' . $name_gen);
-            $save_url = 'upload/team/' . $name_gen;
-
-
-            if ($team->image) {
-                $img = $team->image;
-                unlink($img);
-            }
+            $image = Image::make($request->file('image'))->resize(550, 670)->encode('data-url');
 
             $team->update([
                 'name' => $request->name,
@@ -82,7 +78,7 @@ class TeamController extends Controller
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'instagram' => $request->instagram,
-                'image' => $save_url,
+                'image' => $image,
                 'created_at' => Carbon::now(),
             ]);
 
@@ -123,10 +119,6 @@ class TeamController extends Controller
         }
 
         $team = Team::findOrFail($id);
-        $img = $team->image;
-        unlink($img);
-
-        // Proceed with deleting the team record
         $team->delete();
 
         return response()->json(['success' => true, 'message' => "Team member $team->name has deleted successfully!"]);

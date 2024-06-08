@@ -106,10 +106,7 @@ class BlogController extends Controller
             'post_image' => 'required|file|mimes:jpg,jpeg,png, gif',
         ]);
 
-        $image = $request->file('post_image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(550, 370)->save('upload/post/' . $name_gen);
-        $save_url = 'upload/post/' . $name_gen;
+        $image = Image::make($request->file('post_image'))->resize(550, 370)->encode('data-url');
 
         BlogPost::insert([
 
@@ -119,7 +116,7 @@ class BlogController extends Controller
             'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
             'short_desc' => $request->short_desc,
             'long_desc' => $request->long_desc,
-            'post_image' => $save_url,
+            'post_image' => $image,
             'created_at' => Carbon::now(),
         ]);
 
@@ -152,13 +149,7 @@ class BlogController extends Controller
         $blogPost = BlogPost::findOrFail($id);
 
         if ($request->file('post_image')) {
-            $image = $request->file('post_image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 370)->save('upload/post/' . $name_gen);
-            $save_url = 'upload/post/' . $name_gen;
-
-            $img = $blogPost->post_image;
-            unlink($img);
+            $image = Image::make($request->file('post_image'))->resize(550, 370)->encode('data-url');
 
             $blogPost->update([
 
@@ -168,7 +159,7 @@ class BlogController extends Controller
                 'post_slug' => strtolower(str_replace(' ', '-', $request->post_title)),
                 'short_desc' => $request->short_desc,
                 'long_desc' => $request->long_desc,
-                'post_image' => $save_url,
+                'post_image' => $image,
                 'created_at' => Carbon::now(),
             ]);
 
@@ -209,10 +200,6 @@ class BlogController extends Controller
         }
 
         $blogPost = BlogPost::findOrFail($id);
-        $img = $blogPost->post_image;
-        unlink($img);
-
-        // Proceed with deleting the team record
         $blogPost->delete();
 
         return response()->json(['success' => true, 'message' => "$blogPost->post_title has been deleted successfully!"]);

@@ -97,13 +97,8 @@ class RoomController extends Controller
         $room = Room::findOrFail($id);
 
         if ($request->hasFile('single_image')) {
-            if ($room->image) {
-                unlink('upload/rooming/' . $room->image);
-            }
-            $image = $request->file('single_image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 850)->save('upload/rooming/' . $name_gen);
-            $room->image = $name_gen;
+            $image = Image::make($request->file('single_image'))->resize(550, 850)->encode('data-url');
+            $room->image = $image;
 
             // Update room record with file name or path
             $room->save();
@@ -121,13 +116,11 @@ class RoomController extends Controller
         if ($request->hasFile('multi_img')) {
             $subimage = MultiImage::where('rooms_id', $id)->get()->toArray();
             foreach ($files as $file) {
-                $imgName = date('YmdHi') . $file->getClientOriginalName();
-                $file->move('upload/rooming/multi_img/', $imgName);
-                $subimage['multi_img'] = $imgName;
+                $image = Image::make($file)->resize(856, 568)->encode('data-url');
 
                 $subimage = new MultiImage();
                 $subimage->rooms_id = $room->id;
-                $subimage->multi_img = $imgName;
+                $subimage->multi_img = $image;
                 $subimage->save();
             }
 
@@ -141,27 +134,14 @@ class RoomController extends Controller
     {
         $deleteImage = MultiImage::where('id', $id)->first();
 
-        if ($deleteImage) {
-            $imagePath = $deleteImage->multi_img;
+        $notification = array(
+            'message' => 'Image has been deleted',
+            'alert-type' => 'success'
+        );
 
-            // Check if the file exists befor unlinking
-            if (file_exists('upload/rooming/multi_img/' . $imagePath)) {
-                unlink('upload/rooming/multi_img/' . $imagePath);
-                $notification = array(
-                    'message' => 'Image has been deleted succesfully!',
-                    'alert-type' => 'success'
-                );
-            } else {
-                $notification = array(
-                    'message' => 'Image failed to unlink!',
-                    'alert-type' => 'error'
-                );
-            }
+        // Delete the record form database
 
-            // Delete the record form database
-
-            $deleteImage->delete();
-        }
+        $deleteImage->delete();
 
         return redirect()->back()->with($notification);
     }
@@ -265,20 +245,6 @@ class RoomController extends Controller
 
         if (!Hash::check($request->password, auth()->user()->password)) {
             return response()->json(['success' => false, 'message' => 'Incorrect password!'], 403);
-        }
-
-        if (file_exists('upload/rooming/' . $room->image) && !empty($room->image)) {
-            unlink('upload/rooming/' . $room->image);
-        }
-
-        $sub_image = MultiImage::where('rooms_id', $id)->get()->toArray();
-
-        if (!empty($sub_image)) {
-            foreach ($sub_image as $value) {
-                if (!empty($value['multi_img'])) {
-                    unlink('upload/rooming/multi_img/' . $value['multi_img']);
-                }
-            }
         }
 
         RoomType::where('id', $room->roomtype_id)->delete();

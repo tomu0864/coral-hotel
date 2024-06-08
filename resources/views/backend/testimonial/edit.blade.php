@@ -68,7 +68,7 @@
                       <h6 class="mb-0"></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <img id="showImage" src="{{ $testimonial->image ? asset($testimonial->image) : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                      <img id="showImage" src="{{ $testimonial->image ? $testimonial->image : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80" height="80">
                     </div>
                   </div>
 

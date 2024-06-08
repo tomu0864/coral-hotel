@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('city')->nullable();
-            $table->string('image')->nullable();
+            $table->longText('image')->nullable();
             $table->text('message');
             $table->timestamps();
         });

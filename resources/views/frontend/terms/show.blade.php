@@ -32,7 +32,7 @@
         <div class="row pt-45">
           <div class="col-lg-12">
             <div class="terms-conditions-img">
-              <img src="{{ asset($terms->image) }}" alt="Images" />
+              <img src="{{ $terms->image }}" alt="Images" />
             </div>
 
             <div class="single-area-content">

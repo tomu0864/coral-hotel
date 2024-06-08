@@ -24,7 +24,7 @@
               <div class="col-lg-8">
                   <div class="blog-article">
                       <div class="blog-article-img">
-                          <img class="w-100" src={{ asset($blog->post_image) }} alt="{{ $blog->post_title }}">
+                          <img class="w-100" src={{ $blog->post_image }} alt="{{ $blog->post_title }}">
                       </div>
 
                       <div class="blog-article-title">

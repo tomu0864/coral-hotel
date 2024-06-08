@@ -103,10 +103,7 @@ class RestaurantController extends Controller
             'image' => 'required|file|mimes:jpg,png,png,gif',
         ]);
 
-        $image = $request->file('image');
-        $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        Image::make($image)->resize(550, 550)->save('upload/menu/' . $name_gen);
-        $save_url = 'upload/menu/' . $name_gen;
+        $image = Image::make($request->file('image'))->resize(550, 550)->encode('data-url');
 
         RestaurantMenu::insert([
 
@@ -114,7 +111,7 @@ class RestaurantController extends Controller
             'name' => ucwords($request->name),
             'description' => $request->description,
             'price' => number_format($request->price, 2),
-            'image' => $save_url,
+            'image' => $image,
             'created_at' => Carbon::now(),
         ]);
 
@@ -148,23 +145,14 @@ class RestaurantController extends Controller
         $menu = RestaurantMenu::findOrFail($id);
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(550, 550)->save('upload/menu/' . $name_gen);
-            $save_url = 'upload/menu/' . $name_gen;
-
-
-            if ($menu->image) {
-                $img = $menu->image;
-                unlink($img);
-            }
+            $image = Image::make($request->file('image'))->resize(550, 550)->encode('data-url');
 
             $menu->update([
                 'restaurant_category_id' => $request->category_id,
                 'name' => ucwords($request->name),
                 'description' => $request->description,
                 'price' => number_format($request->price, 2),
-                'image' => $save_url,
+                'image' => $image,
                 'created_at' => Carbon::now(),
             ]);
 
@@ -203,10 +191,6 @@ class RestaurantController extends Controller
 
         foreach ($selectedItems as $itemId) {
             $item = RestaurantMenu::findOrFail($itemId);
-            $img = $item->image;
-            if ($img) {
-                unlink($img);
-            }
             $item->delete();
         }
 

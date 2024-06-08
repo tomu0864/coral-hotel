@@ -6,7 +6,7 @@
               <div class="col-lg-5 col-md-4 p-0">
                   <div class="room-card-img">
                       <a href="{{ route('room.details', $otherRoom->id) }}">
-                          <img src="{{ asset('upload/rooming/' .$otherRoom->image) }}" alt="{{ $otherRoom->type->name }}">
+                          <img src="{{ $otherRoom->image }}" alt="{{ $otherRoom->type->name }}">
                       </a>
                   </div>
               </div>

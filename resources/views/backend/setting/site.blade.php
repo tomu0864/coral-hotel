@@ -114,7 +114,7 @@
                       <h6 class="mb-0"></h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      <img id="showImage" src="{{ asset($site->logo) }}" alt="Logo" class="rounded-circle p-1" width="100" height="100">
+                      <img id="showImage" src="{{ $site->logo }}" alt="Logo" class="rounded-circle p-1" width="100" height="100">
                     </div>
                   </div>
 

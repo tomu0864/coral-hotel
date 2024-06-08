@@ -49,16 +49,7 @@ class SettingController extends Controller
         $site = SiteSetting::findOrFail($id);
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(110, 44)->save('upload/logo/' . $name_gen);
-            $save_url = 'upload/logo/' . $name_gen;
-
-            if ($site->logo) {
-                $img = $site->logo;
-                unlink($img);
-            }
-
+            $image = Image::make($request->file('image'))->resize(110, 44)->encode('data-url');
 
             $site->update([
                 'phone' => $request->phone,
@@ -69,7 +60,7 @@ class SettingController extends Controller
                 'youtube' => $request->youtube,
                 'address' => $request->address,
                 'copyright' => $request->copyright,
-                'logo' => $save_url,
+                'logo' => $image,
             ]);
 
 

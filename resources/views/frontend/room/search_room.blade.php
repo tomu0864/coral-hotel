@@ -48,7 +48,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="room-card">
             <a href="{{ route('room.booking.search.details',$room->id.'&check_in='.old('check_in').'&check_out='.old('check_out').'&person='.old('person'))}}">
-                      <img src="{{ asset('upload/rooming/' .$room->image) }}" alt="{{ $room->type->name }}" style="width: 550px; height:300px">
+                      <img src="{{ $room->image }}" alt="{{ $room->type->name }}" style="width: 550px; height:300px">
                   </a>
                   <div class="content">
                     <div>

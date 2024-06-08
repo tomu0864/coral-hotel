@@ -54,20 +54,11 @@ class PolicyTermController extends Controller
         $term = TermsCondition::findOrFail($id);
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1140, 700)->save('upload/terms/' . $name_gen);
-            $save_url = 'upload/terms/' . $name_gen;
-
-
-            if ($term->image) {
-                $img = $term->image;
-                unlink($img);
-            }
+            $image = Image::make($request->file('image'))->resize(1140, 700)->encode('data-url');
 
             $term->update([
                 'content' => $request->content,
-                'image' => $save_url,
+                'image' => $image,
                 'updated_at' => Carbon::now(),
             ]);
         } else {

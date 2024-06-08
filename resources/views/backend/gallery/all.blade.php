@@ -47,7 +47,7 @@
               <td><input type="checkbox" name="selectedItem[]" value="{{ $item->id }}"></td>
               <td>{{ $key+1 }}</td>
               <td>{{ $item->category_name }}</td>
-              <td><img src="{{ asset($item->photo) }}" alt="Gallery Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
+              <td><img src="{{ $item->photo }}" alt="Gallery Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
               <td>
                 <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-warning px-3 radius-30">Edit</a>
               </td>

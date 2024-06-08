@@ -13,7 +13,7 @@
         @foreach ($team as $member)
         <div class="team-item">
             <a href="{{ route('team.list') }}">
-                <img src="{{ asset($member->image) }}" alt="{{ $member->name }}">
+                <img src="{{ $member->image }}" alt="{{ $member->name }}">
             </a>
             <div class="content">
                 <h3><a href="{{ route('team.list') }}">{{ $member->name }}</a></h3>

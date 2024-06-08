@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('post_title');
             $table->string('post_slug');
-            $table->string('post_image');
+            $table->longText('post_image');
             $table->text('short_desc');
             $table->longText('long_desc');
             $table->timestamps();

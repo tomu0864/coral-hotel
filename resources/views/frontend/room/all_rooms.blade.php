@@ -31,7 +31,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="room-card">
             <a href="{{ route('room.details', $room->id) }}">
-                      <img src="{{ asset('upload/rooming/' .$room->image) }}" alt="{{ $room->type->name }}" style="width: 550px; height:300px">
+                      <img src="{{ $room->image }}" alt="{{ $room->type->name }}" style="width: 550px; height:300px">
                   </a>
                   <div class="content">
                     <div>

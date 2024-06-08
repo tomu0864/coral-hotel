@@ -35,15 +35,8 @@ class UserController extends Controller
         $data->address = $request->address;
 
         if ($request->file('photo')) {
-            $file = $request->file('photo');
-            // Repalace old photo with new one
-            if ($data->photo) {
-                unlink(public_path('upload/user_images/' . $data->photo));
-            }
-            //Generate date ID and concatenate with original upload file name
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('upload/user_images'), $filename);
-            $data->photo = $filename;
+            $image = $request->file('photo')->encode('data-url');
+            $data->photo = $image;
         }
         $data->save();
 

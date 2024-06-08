@@ -21,10 +21,7 @@ class BookAreaController extends Controller
         $book_id = $request->id;
 
         if ($request->file('image')) {
-            $image = $request->file('image');
-            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1000, 1000)->save('upload/bookarea/' . $name_gen);
-            $save_url = 'upload/bookarea/' . $name_gen;
+            $image = Image::make($request->file('image'))->resize(1000, 1000)->encode('data-url');
 
             BookArea::findOrFail($book_id)->update([
 
@@ -33,7 +30,7 @@ class BookAreaController extends Controller
                 'main_title'  => $request->main_title,
                 'short_desc'  => $request->short_desc,
                 'link_url'   => $request->link_url,
-                'image'       => $save_url,
+                'image'       => $image,
             ]);
 
             $notification = array(

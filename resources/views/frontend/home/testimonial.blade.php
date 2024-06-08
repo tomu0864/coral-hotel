@@ -29,7 +29,7 @@
                       </p>
                       <ul>
                           <li>
-                              <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}">
+                              <img src="{{ $testimonial->image }}" alt="{{ $testimonial->name }}">
                               <h3>{{ $testimonial->name }}</h3>
                               <span>{{ $testimonial->city }}</span>
                             </li>

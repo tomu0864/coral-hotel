@@ -41,7 +41,7 @@
                 
             <tr class="align-middle">
               <td>{{ $key+1 }}</td>
-              <td><img src="{{ asset($item->image) }}" alt="Team Member Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
+              <td><img src="{{ $item->image }}" alt="Team Member Image" class="img-thumbnail" style="width:70px; height: 60px;"></td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->city }}</td>
               <td>

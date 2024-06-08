@@ -31,7 +31,7 @@
                           <div class="col-lg-5 col-md-4 p-0">
                               <div class="blog-img">
                                   <a href="{{ url('blog/details/'.$blog->post_slug) }}">
-                                      <img src="{{ asset($blog->post_image) }}" alt="Images">
+                                      <img src="{{ $blog->post_image }}" alt="Images">
                                   </a>
                               </div>
                           </div>
