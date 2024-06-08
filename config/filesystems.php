@@ -47,27 +47,6 @@ return [
             'throw' => false,
         ],
 
-        's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID', 'AKIAXYKJSJC6XSOY5PTK'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY', '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'),
-            'region' => env('AWS_DEFAULT_REGION', 'ap-northeast-1'),
-            'bucket' => env('AWS_BUCKET', 'tomu-aws'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-            'throw' => false,
-        ],
-
-        'gcs' => [
-            'driver' => 'gcs',
-            'project_id' => env('GCP_PROJECT_ID', 'coral-hotel-425707'),
-            'key_file' => env('GCP_KEY_FILE', 'C:/xampp/htdocs/hotel/coral-hotel-425707-b91d9b3a5a6a.json'),
-            'bucket' => env('GCS_BUCKET', 'coral-bucket-gcs'),
-            'path_prefix' => env('GCS_PATH_PREFIX', null),
-            'storage_api_uri' => env('GCS_STORAGE_API_URI', null),
-        ],
-
     ],
 
     /*
