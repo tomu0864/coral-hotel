@@ -122,7 +122,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     // Book Area
     Route::controller(BookAreaController::class)->group(function () {
-        Route::middleware('permission:bookarea.menu')->group(function () {
+        Route::middleware('permission:book.area.menu')->group(function () {
             Route::get('/bookarea', 'BookArea')->name('book.area');
             Route::post('/bookarea/update', 'BookAreaUpdate')->name('book.area.update');
         });
