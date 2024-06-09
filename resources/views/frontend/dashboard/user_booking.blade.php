@@ -81,7 +81,7 @@
                                           @php
                                             $checkInDate = Carbon\Carbon::parse($u_booking->check_in);
                                             $today = Carbon\Carbon::today();
-                                            $daysUntilCheckIn = $checkInDate->diffInDays($today, false);
+                                            $daysUntilCheckIn = $today->diffInDays($checkInDate, false);
                                             $isWithinThreeDays = $daysUntilCheckIn <= 3 && $today->lte($checkInDate);
                                           @endphp
 
