@@ -296,9 +296,9 @@
           </li>
           <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.change.password') }}"><i class="bx bx-cog fs-5"></i><span></span>Change Password</a>
           </li>
-          <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
+          <li><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.dashboard') }}"><i class="bx bx-home-circle fs-5"></i><span>Dashboard</span></a>
           </li>
-          <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-globe fs-5"></i><span>Our Website</span></a>
+          <li><a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}"><i class="bx bx-globe fs-5"></i><span>Our Website</span></a>
           </li>
           <li>
             <div class="dropdown-divider mb-0"></div>
