@@ -46,8 +46,8 @@
             <tr class="align-middle">
               <td>{{ $key+1 }}</td>
               <td class="text-center">
-                <img src="{{ (!empty($item->photo)) ? url('upload/admin_images/' . 
-                $item->photo) : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1" width="70" height="70" style="object-fit: cover">              
+                <img src="{{ (!empty($item->photo)) ?  
+                $item->photo : url('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1" width="70" height="70" style="object-fit: cover">              
               </td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->email }}</td>

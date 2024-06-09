@@ -244,9 +244,9 @@
           <a href="{{ route('role.all') }}"><i class='bx bx-message-rounded-dots'></i>Roles</a>
         </li>
 
-        <li> 
+        {{-- <li> 
           <a href="{{ route('role.permission.assign') }}"><i class='bx bxs-user-plus'></i>Assign Role In Permission</a>
-        </li>
+        </li> --}}
 
         <li> 
           <a href="{{ route('role.permission.assign.all') }}"><i class='bx bxs-user-detail'></i>All Role In Permission</a>

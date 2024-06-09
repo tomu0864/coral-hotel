@@ -51,7 +51,7 @@
               <tr class="align-middle">
                 <td>{{ $key + 1 }}</td>
                 <td>
-                  <img src="{{ $item->user->photo ? url('upload/user_images/' . $item->user->photo) : url('upload/no_image.jpg') }}" alt="{{ $item->user->name }}" style="height: 50px; width: 50px;">
+                  <img src="{{ $item->user->photo ? $item->user->photo : url('upload/no_image.jpg') }}" alt="{{ $item->user->name }}" style="height: 50px; width: 50px;">
                 </td>
                 <td>{{ $item->user->name }}</td>
                 <td>{{ Str::limit($item->post->post_title, 20) }}</td>

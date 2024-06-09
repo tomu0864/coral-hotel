@@ -16,9 +16,9 @@
     </div>
     <div class="ms-auto">
     
-        <a href="{{ route('role.permission.assign') }}" class="btn btn-primary px-5 radius-30">
+        {{-- <a href="{{ route('role.permission.assign') }}" class="btn btn-primary px-5 radius-30">
          Assign Role In Permission
-       </a>
+       </a> --}}
 
     </div>
   </div>
