@@ -115,7 +115,7 @@
                     </div>
                     <div class="col-sm-9 text-secondary">
                       <img id="showPhoto" src="{{ (!empty($profileData->photo)) ? $profileData->photo : url('upload/no_image.jpg') }}" 
-                      alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                      alt="Admin" class="rounded-circle p-1 bg-primary" width="80" height="80">
                     </div>
                   </div>
 

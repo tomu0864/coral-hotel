@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 
+
 class AdminController extends Controller
 {
     public function AdminDashboard()
@@ -61,8 +62,9 @@ class AdminController extends Controller
         $data->address = $request->address;
 
         if ($request->file('photo')) {
-            $image = $request->file('photo')->get();
-            $data->photo = base64_encode($image);
+            $image = $request->file('photo');
+            $imageData = "data:image/" . $image->extension() . ";base64," . base64_encode(file_get_contents($image));
+            $data->photo = $imageData;
         }
         $data->save();
 

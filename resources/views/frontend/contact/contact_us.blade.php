@@ -37,74 +37,69 @@
                             </div>
                         </div>
                     </div>
-
+        
                     <div class="col-lg-6">
                         <div class="contact-form">
-                            <form  action="{{ route('contact.store') }}" method="post">
-                              @csrf
+                            <form action="{{ route('contact.store') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid
-                                            @enderror" value="{{ old('name') }}"  placeholder="Name">
+                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Name">
                                             @error('name')
-                                              <p class="text-danger m-0">{{ $message }}</p>
+                                                <p class="text-danger m-0">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
-    
+        
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid
-                                            @enderror" value="{{ old('email') }}"  placeholder="Email">
+                                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email">
                                             @error('email')
-                                              <p class="text-danger m-0">{{ $message }}</p>
+                                                <p class="text-danger m-0">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
-    
+        
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" class="form-control @error('phone') is-invalid
-                                            @enderror" placeholder="Phone">
+                                            <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone">
                                             @error('phone')
-                                              <p class="text-danger m-0">{{ $message }}</p>
+                                                <p class="text-danger m-0">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
-    
+        
                                     <div class="col-lg-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" name="subject" id="subject" class="form-control @error('subject') is-invalid
-                                            @enderror" value="{{ old('subject') }}"  placeholder="Your Subject">
+                                            <input type="text" name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror" value="{{ old('subject') }}" placeholder="Your Subject">
                                             @error('subject')
-                                              <p class="text-danger m-0">{{ $message }}</p>
+                                                <p class="text-danger m-0">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
-    
+        
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <textarea name="message" class="form-control @error('message') is-invalid
-                                            @enderror" id="message" cols="30" rows="8"  placeholder="Your Message">{{ old('message') }}</textarea>
+                                            <textarea name="message" class="form-control @error('message') is-invalid @enderror" id="message" cols="30" rows="8" placeholder="Your Message">{{ old('message') }}</textarea>
                                             @error('message')
-                                              <p class="text-danger m-0">{{ $message }}</p>
+                                                <p class="text-danger m-0">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
-
+        
                                     <div class="col-lg-12 col-md-12">
-                                        <div class="form-group checkbox-option" style="display: flex; text-align:center">
+                                        <div class="form-group checkbox-option" style="display: flex; align-items: center;">
                                             <input type="checkbox" id="check" name="check">
-                                            <p class="ps-2" style="margin-bottom: 0">
+                                            <p class="ps-2" style="margin-bottom: 0; margin-left: 10px;">
                                                 Accept <a href="{{ route('terms.show') }}">Terms & Conditions</a> And <a href="{{ route('private.policy.show') }}">Privacy Policy.</a>
                                             </p>
                                         </div>
-                                      </div>
-                                      @error('check')
-                                      <p class="text-danger mt-0">{{ $message }}</p>
+                                    </div>
+                                    @error('check')
+                                        <p class="text-danger mt-0">{{ $message }}</p>
                                     @enderror
-    
+        
                                     <div class="col-lg-12 col-md-12">
                                         <button type="submit" class="default-btn btn-bg-three">
                                             Send Message
@@ -119,6 +114,8 @@
                 </div>
             </div>
         </div>
+        
+        
         <!-- Contact Area End -->
 
         @php

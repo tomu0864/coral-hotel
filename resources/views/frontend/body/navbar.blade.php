@@ -9,8 +9,8 @@
   <!-- Menu For Mobile Device -->
   <div class="mobile-nav">
       <a href="{{ url('/') }}" class="logo">
-          <img src="{{ asset($setting->logo) }}" class="logo-one" alt="Logo">
-          <img src="{{ asset($setting->logo) }}" class="logo-two" alt="Logo">
+          <img src="{{ $setting->logo }}" class="logo-one" alt="Logo">
+          <img src="{{ $setting->logo }}" class="logo-two" alt="Logo">
       </a>
   </div>
 

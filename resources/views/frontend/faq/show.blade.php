@@ -130,13 +130,13 @@
                               </div>
 
                               <div class="col-lg-12 col-md-12">
-                                  <div class="form-group checkbox-option" style="display: flex; text-align:center">
-                                      <input type="checkbox" id="check" name="check">
-                                      <p class="ps-2" style="margin-bottom: 0">
-                                          Accept <a href="{{ route('terms.show') }}">Terms & Conditions</a> And <a href="{{ route('private.policy.show') }}">Privacy Policy.</a>
-                                      </p>
-                                  </div>
+                                <div class="form-group checkbox-option" style="display: flex; align-items: center;">
+                                    <input type="checkbox" id="check" name="check">
+                                    <p class="ps-2" style="margin-bottom: 0; margin-left: 10px;">
+                                        Accept <a href="{{ route('terms.show') }}">Terms & Conditions</a> And <a href="{{ route('private.policy.show') }}">Privacy Policy.</a>
+                                    </p>
                                 </div>
+                              </div>
                                 @error('check')
                                 <p class="text-danger mt-0">{{ $message }}</p>
                               @enderror

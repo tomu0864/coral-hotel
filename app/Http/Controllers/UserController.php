@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     public function index()
@@ -28,15 +29,18 @@ class UserController extends Controller
     {
 
         $id = Auth::user()->id;
-        $data = User::find($id);
+        $data = User::findOrFail($id);
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->address = $request->address;
 
         if ($request->file('photo')) {
-            $image = $request->file('photo')->get();
-            $data->photo = base64_encode($image);
+            if ($request->file('photo')) {
+                $image = $request->file('photo');
+                $imageData = "data:image/" . $image->extension() . ";base64," . base64_encode(file_get_contents($image));
+                $data->photo = $imageData;
+            }
         }
         $data->save();
 
