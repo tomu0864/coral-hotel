@@ -26,7 +26,7 @@
           <div class="container">
               <div class="section-title text-center">
                   <span class="sp-color">Privacy Policy</span>
-                  <h2>Atoli Privacy Policy</h2>
+                  <h2>Coral Privacy Policy</h2>
                   <p>This Policy Was Last Updated {{ $policy->updated_at ? $policy->updated_at->format('M d,Y') : '' }}.</p>
               </div>
               <div class="row pt-45">

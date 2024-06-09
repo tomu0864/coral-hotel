@@ -206,7 +206,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($request->role_id);
         $role_has_perm = DB::table('role_has_permissions')->where('role_id', $role->id)->get();
 
-        if (!empty($role_has_perm)) {
+        if (!(empty($role_has_perm))) {
             $notification = [
                 'message' => "Permissions already have been assigned for $role->name.Please update on edit page",
                 'alert-type' => 'error'
