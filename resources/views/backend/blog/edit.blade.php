@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <img src="{{ asset($post->post_image) }}" alt="Post Image" id="showImage" class="p-1 w-100">
+                  <img src="{{ $post->post_image }}" alt="Post Image" id="showImage" class="p-1 w-100">
                 </div>
                 
                 <div class="col-md-12">
