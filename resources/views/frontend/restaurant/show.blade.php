@@ -55,7 +55,7 @@
                                   <div class="row align-items-center">
                                       <div class="col-lg-6 col-md-6 p-0">
                                           <div class="restaurant-img">
-                                              <img src="{{ asset($menu->image) }}" alt="{{ $menu->name }}">
+                                              <img src="{{ $menu->image }}" alt="{{ $menu->name }}">
                                           </div>
                                       </div>
       
@@ -100,7 +100,7 @@
                                   <div class="row align-items-center">
                                       <div class="col-lg-6 col-md-6 p-0">
                                           <div class="restaurant-img">
-                                              <img src="{{ asset($menu->image) }}" alt="{{ $menu->name }}">
+                                              <img src="{{ $menu->image }}" alt="{{ $menu->name }}">
                                           </div>
                                       </div>
       
